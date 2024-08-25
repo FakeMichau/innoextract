@@ -1,0 +1,29 @@
+name: Build on Linux
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Create build dir
+        run: mkdir -p build
+      
+      - name: Run cmake
+        run: cd build && cmake ..
+
+      - name: Compile
+        run: cd build && make
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: innoextract63
+          path: build/innoextract
