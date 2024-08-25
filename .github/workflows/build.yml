@@ -20,7 +20,7 @@ jobs:
         run: mkdir -p build
       
       - name: Run cmake
-        run: cd build && cmake ..
+        run: cd build && cmake .. -DUSE_STATIC_LIBS=1
 
       - name: Compile
         run: cd build && make
