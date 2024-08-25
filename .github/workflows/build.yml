@@ -25,6 +25,9 @@ jobs:
       - name: Compile
         run: cd build && make
 
+      - name: Prepare for upload
+        run: chmod +x build/innoextract && strip build/innoextract
+
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
