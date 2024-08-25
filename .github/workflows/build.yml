@@ -14,7 +14,7 @@ jobs:
           fetch-depth: 0
 
       - name: Install dependencies
-        run: sudo apt-get update && sudo apt-get install -yq libboost1.83-dev xz-utils
+        run: sudo apt-get update && sudo apt-get install -yq libboost-dev xz-utils
 
       - name: Create build dir
         run: mkdir -p build
